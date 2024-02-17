@@ -1,0 +1,57 @@
+{% extends 'base.html'%}
+{%block title%}client_list{%endblock%}
+{%block content%}
+<div class="py-6 px-6">
+<h1 class="mb-4 text-xl font-semibold">Client list</h1>
+
+<a href="{% url 'add_client' %}" class="inline-block py-4 px-6 bg-teal-600 rounded-xl text-white" > Add Client</a>
+
+{%if client%}
+ <div class="mt-6 flex justify-between">
+    <p class="py-4 px-2 bg-gray-200 font-semibold w-full">Name</p>
+    <p class="py-4 px-2 bg-gray-200 font-semibold w-full">Mobile Number</p>
+    <p class="py-4 px-2 bg-gray-200 font-semibold w-full">Date</p>
+    <p class="py-4 px-2 bg-gray-200 font-semibold w-full">Service</p>
+    <p class="py-4 px-2 bg-gray-200 font-semibold w-full">Delete</p>
+ </div>
+{% for c in client%}
+ <div class="flex justify-between">
+    <p class="py-2 px-2 w-full {% cycle 'bg-gray-100' ''%}">{{c.name}}</p>
+    <p class="py-2 px-2 w-full {% cycle 'bg-gray-100' ''%}">{{c.phonenumber}}</p>
+    <p class="py-2 px-2 w-full {% cycle 'bg-gray-100' ''%}">{{c.date}}</p>
+    <p class="py-2 px-2 w-full {% cycle 'bg-gray-100' ''%}">{{c.service}}</p>
+    <p class="py-2 px-2 w-full {% cycle 'bg-gray-100' ''%}"><a href="{% url 'client_delete' c.id %}" class="py-2 px-4 mb-4 rounded-xl bg-red-500 text-white">Delete</a></p>
+ </div>
+
+{%endfor%}
+{%else%}
+    <p class="mt-6 px-2">There are no Clients to view</p>
+{%endif%}
+<br><br>
+<h1 class="mb-4 text-xl font-semibold">Appointment list</h1>
+{%if customer%}
+ <div class="mt-6 flex justify-between">
+    <p class="py-4 px-2 bg-gray-200 font-semibold w-full">First Name</p>
+    <p class="py-4 px-2 bg-gray-200 font-semibold w-full">Service</p>
+    <p class="py-4 px-2 bg-gray-200 font-semibold w-full">Date</p>
+    <p class="py-4 px-2 bg-gray-200 font-semibold w-full">Time</p>
+    <p class="py-4 px-2 bg-gray-200 font-semibold w-full">Delete</p>
+    
+ </div>
+{% for customer in customer%}
+ <div class="flex justify-between">
+    <p class="py-2 px-2 w-full {% cycle 'bg-gray-100' ''%}">{{customer.first_name}}</p>
+    <p class="py-2 px-2 w-full {% cycle 'bg-gray-100' ''%}">{{customer.service}}</p>
+    <p class="py-2 px-2 w-full {% cycle 'bg-gray-100' ''%}">{{customer.date}}</p>
+    <p class="py-2 px-2 w-full {% cycle 'bg-gray-100' ''%}">{{customer.slot}}</p>
+    
+    <p class="py-2 px-2 w-full {% cycle 'bg-gray-100' ''%}"><a href="{% url 'convert_customer' customer.id %}" class="py-2 px-4 mb-4 rounded-xl bg-red-500 text-white">Convert</a></p>
+
+    </div>
+
+{%endfor%}
+{%else%}
+    <p class="mt-6 px-2">There are no Clients to view</p>
+{%endif%}
+</div> 
+{% endblock %}

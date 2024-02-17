@@ -1,0 +1,28 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointment Booking - Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Appointment Booking Successful!</h1>
+    <p>Your appointment has been booked successfully. We look forward to seeing you.</p>
+    <a href="{% url 'appointment:index' %}" class="btn btn-primary">Back to Home</a>
+</body>
+</html>

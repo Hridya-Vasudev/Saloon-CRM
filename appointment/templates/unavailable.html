@@ -1,0 +1,28 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointment Booking - Slot Unavailable</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Appointment Slot Unavailable</h1>
+    <p>Sorry, the selected appointment slot is no longer available. Please choose another slot.</p>
+    <a href="{% url 'appointment:book_appointment' %}" class="btn btn-primary">Back to Apponitments</a>
+</body>
+</html>

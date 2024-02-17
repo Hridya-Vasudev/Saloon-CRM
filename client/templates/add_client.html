@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+{%block title%}add_client{%endblock%}
+{%block content%}
+<div class="py-6 px-6">
+<h1 class="text-xl">Add Client</h1>
+<form method="post" action=".">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="py-4 px-8 bg-teal-500 text-white rounded-xl">Sumbit</button>
+</form>
+</div> 
+{% endblock %}
